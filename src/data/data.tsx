@@ -1,9 +1,9 @@
 import {
   AcademicCapIcon,
-  ArrowDownTrayIcon,
   BuildingOffice2Icon,
   MapIcon,
   SparklesIcon,
+  UserGroupIcon
 } from '@heroicons/react/24/outline';
 
 import GithubIcon from '../components/Icon/GithubIcon';
@@ -14,9 +14,7 @@ import {
   About,
   ContactSection,
   ContactType,
-  Hero,
   HomepageMeta,
-  SkillGroup,
   Social,
   TimelineItem,
 } from './dataDef';
@@ -44,133 +42,26 @@ export const SectionId = {
 export type SectionId = (typeof SectionId)[keyof typeof SectionId];
 
 /**
- * Hero section
- */
-export const heroData: Hero = {
-  imageSrc: backgroundImage,
-  name: `Ellen Chan`,
-  description: (
-    <>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a Victoria based <strong className="text-stone-100">Full Stack Software Engineer</strong>, currently working
-        at <strong className="text-stone-100">Instant Domains</strong> helping build a modern, mobile-first, domain
-        registrar and site builder.
-      </p>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time time, you can catch me training in <strong className="text-stone-100">Muay Thai</strong>,
-        plucking my <strong className="text-stone-100">banjo</strong>, or exploring beautiful{' '}
-        <strong className="text-stone-100">Vancouver Island</strong>.
-      </p>
-    </>
-  ),
-  actions: [
-    {
-      href: '/assets/resume.pdf',
-      text: 'Resume',
-      primary: true,
-      Icon: ArrowDownTrayIcon,
-    },
-    {
-      href: `#${SectionId.Contact}`,
-      text: 'Contact',
-      primary: false,
-    },
-  ],
-};
-
-/**
  * About section
  */
 export const aboutData: About = {
   imageSrc: backgroundImage,
   profileImageSrc: profilePic,
-  description: `Use this bio section as your way of describing yourself and saying what you do, what technologies you like
-  to use or feel most comfortable with, describing your personality, or whatever else you feel like throwing
-  in.`,
+  description: `I'm currently working towards a Master's degree in Computer Science at the University of San Francisco, while 
+  also gaining hands-on experience as a software engineer through my internship at Surefyre. 
+  My journey in the tech world has been incredibly rewarding, allowing me to apply my academic knowledge to real-world projects. 
+  I'm eager to further refine my skills and contribute to a team that values continuous growth and development.`,
   aboutItems: [
     { label: 'Location', text: 'San Francisco, CA', Icon: MapIcon },
     { label: 'Interests', text: 'Sewing, Thrifting, Gaming', Icon: SparklesIcon },
     { label: 'Education', text: 'University of San Francisco\nUniversity of California, Davis', Icon: AcademicCapIcon },
     { label: 'Internship', text: 'Surefyre', Icon: BuildingOffice2Icon },
+    { label: 'Affiliations', text: 'Committee on Information Technology Strategy', Icon: UserGroupIcon },
   ],
 };
 
 /**
- * Skills section
- */
-export const skills: SkillGroup[] = [
-  {
-    name: 'Spoken languages',
-    skills: [
-      {
-        name: 'English',
-        level: 10,
-      },
-      {
-        name: 'French',
-        level: 4,
-      },
-      {
-        name: 'Spanish',
-        level: 3,
-      },
-    ],
-  },
-  {
-    name: 'Frontend development',
-    skills: [
-      {
-        name: 'React',
-        level: 9,
-      },
-      {
-        name: 'Typescript',
-        level: 7,
-      },
-      {
-        name: 'GraphQL',
-        level: 6,
-      },
-    ],
-  },
-  {
-    name: 'Backend development',
-    skills: [
-      {
-        name: 'Node.js',
-        level: 8,
-      },
-      {
-        name: 'Rust',
-        level: 5,
-      },
-      {
-        name: 'Golang',
-        level: 4,
-      },
-    ],
-  },
-  {
-    name: 'Mobile development',
-    skills: [
-      {
-        name: 'React Native',
-        level: 9,
-      },
-      {
-        name: 'Flutter',
-        level: 4,
-      },
-      {
-        name: 'Swift',
-        level: 3,
-      },
-    ],
-  },
-];
-
-/**
- * Resume section -- TODO: Standardize resume contact format or offer MDX
+ * Resume section
  */
 export const education: TimelineItem[] = [
   {
@@ -191,7 +82,7 @@ export const education: TimelineItem[] = [
     date: 'September 2013 – June 2017',
     location: 'University of California, Davis',
     title: 'Bachelor of Science in Chemical Engineering',
-    content: <p></p>,
+    content: <p className="pl-3 text-sm"></p>,
   },
 ];
 
@@ -201,9 +92,12 @@ export const experience: TimelineItem[] = [
     location: 'Surefyre',
     title: 'Software Engineering Intern',
     content: (
-      <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+      <p className="pl-3 text-sm">
+        As an intern, I began by enhancing and updating the schemas for platform forms. As I gained experience, my roles have expanded. 
+        I'm actively contributing to the integration of billing functionality into the platform. 
+        This involves managing data flow between the PostgreSQL database, Django models, and external billing services. 
+        I am also currently working on designing a webhook integration system, 
+        using Python-based Django view functions to improve real-time communication with the external billing services.
       </p>
     ),
   },
@@ -212,11 +106,54 @@ export const experience: TimelineItem[] = [
     location: 'University of San Francisco',
     title: 'Tutor/Teaching Assistant',
     content: (
-      <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+      <p className="pl-3 text-sm">
+        I provided peer support and mentorship to fellow computer science students, 
+        assisting with understanding various topics and software troubleshooting. 
+        I also conducted lab sessions to reinforce learning and participated in grading assignments 
+        for a Python-based scientific computation and machine learning course.
       </p>
     ),
+  },
+];
+
+export const projects: TimelineItem[] = [
+  {
+    date: 'February 2023 – March 2023',
+    location: 'Network Compression Detection App',
+    title: 'Developer',
+    content: <p className="pl-3 text-sm">
+      I developed network applications in C to identify network compression in both cooperative and uncooperative scenarios. 
+      The project involved implementing key network protocols such as TCP, UDP, and raw sockets 
+      to facilitate packet transmission, reception, and monitoring. 
+      I configured IP and TCP packet headers to ensure the inclusion of essential components like checksums, 
+      flags, and timeouts, optimizing functionality.
+    </p>,
+  },
+  {
+    date: 'November 2022 – December 2022',
+    location: 'Hotel Review Website',
+    title: 'Developer',
+    content: <p className="pl-3 text-sm">
+      I created a hotel review website using Java, which enabled user registration, user login, 
+      hotel searches, and the ability to compose and edit reviews.
+      To ensure data integrity, I employed a MySQL database for storing crucial information 
+      such as hotel details, user reviews, and password encryption.
+      To enhance user experience, I integrated Ajax to dynamically update web pages as users navigate through review sections, 
+      favorite hotels, and access real-time weather information for hotel locations, all without requiring page reloads.
+    </p>,
+  },
+  {
+    date: 'June 2022 - August 2022',
+    location: 'Racing Roguelike Video Game',
+    title: 'Developer',
+    content: <p className="pl-3 text-sm">
+      I contributed to the development of an in-browser video game that blended aspects of car racing and roguelike genres. 
+      While leveraging TypeScript and the Phaser framework, I focusing on implementing the procedural generation 
+      of race tracks and map terrain as 2D tile maps.
+      These maps were apart of the model component in the MVC design pattern utilized for this project.
+      In addition, I took charge of setting up an efficient CI/CD pipeline through GitHub Actions, 
+      ensuring seamless automatic game building and deployment on GitHub Pages every time code was committed to the repository.
+      </p>,
   },
 ];
 
